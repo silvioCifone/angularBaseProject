@@ -6,6 +6,7 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { AuthenticationService } from "../authentication.service";
+import { Path } from "../models/path";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
@@ -20,7 +21,7 @@ export class AuthGuard implements CanActivate {
       // check if route is restricted by role
       if (route.data.roles && route.data.roles.indexOf(user.role) === -1) {
         // role not authorised so redirect to home page
-        this.router.navigate(["/"]);
+        this.router.navigate([Path.Home]);
         return false;
       }
 
@@ -29,7 +30,9 @@ export class AuthGuard implements CanActivate {
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
+    this.router.navigate([Path.Login], {
+      queryParams: { returnUrl: state.url },
+    });
     return false;
   }
 }
