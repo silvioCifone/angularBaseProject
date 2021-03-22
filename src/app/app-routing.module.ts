@@ -4,27 +4,28 @@ import { AdminComponent } from "./admin/admin.component";
 import { AuthGuard } from "./helpers/auth.guard";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
+import { Path } from "./models/path";
 import { Role } from "./models/role";
 
 const routes: Routes = [
   {
-    path: "",
+    path: Path.Home,
     component: HomeComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: "admin",
+    path: Path.Admin,
     component: AdminComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] },
   },
   {
-    path: "login",
+    path: Path.Login,
     component: LoginComponent,
   },
 
   // otherwise redirect to home
-  { path: "**", redirectTo: "" },
+  { path: "**", redirectTo: Path.Home },
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { Path } from "./models/path";
 import { User } from "./models/user";
 
 @Injectable({
@@ -44,6 +45,6 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem("user");
     this.userSubject.next(null);
-    this.router.navigate(["/login"]);
+    this.router.navigate([Path.Login]);
   }
 }
