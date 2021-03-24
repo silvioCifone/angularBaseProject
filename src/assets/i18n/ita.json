@@ -1,0 +1,18 @@
+{
+    "LoginTitle": "Esempio di Autenticazione con Gestione dei Ruoli su Angular 10",
+    "UsernameField": "Nome utente",
+    "PasswordField": "Password",
+    "LoginButton": "Accedi",
+    "UsernameError": "Il nome utente è obbligatorio",
+    "PasswordError": "La password è obbligatoria",
+    "NormalUser": "Utente standard",
+    "Administrator": "Amministratore",
+    "HomeBody1": "Hai eseguito l'accesso con Angular 10 e JWT!",
+    "HomeBody2": "Il tuo ruolo è",
+    "HomeBody3": "Questa pagina può essere visualizzata da",
+    "HomeBody4": "tutti gli utenti autenticati",
+    "HomeBody5": "Utente corrente da endpoint API sicuro:",
+    "AdminBody1": "Questa pagina può essere visualizzata",
+    "AdminBody2": "solo dagli amministratori",
+    "AdminBody3": "Tutti gli utenti (solo amministratori) da endpoint API sicuro:"
+}

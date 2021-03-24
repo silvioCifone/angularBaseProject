@@ -1,26 +1,34 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, DoCheck, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 import { first } from "rxjs/operators";
 import { AuthenticationService } from "../authentication.service";
 import { Path } from "../models/path";
+import { Language } from "../models/language";
+import { Languages } from "../models/languages";
+import { UtilsService } from "../utils.service";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, DoCheck {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
   error = "";
+  languages;
+  selectedLanguage: Language;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private translate: TranslateService,
+    private utils: UtilsService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.userValue) {
@@ -28,7 +36,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  getLanguageList(){
+    this.languages = this.utils.languages;
+  }
+  
+
   ngOnInit(): void {
+    this.getLanguageList();
     this.loginForm = this.formBuilder.group({
       username: ["", Validators.required],
       password: ["", Validators.required],
@@ -63,5 +77,18 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         },
       });
+  }
+
+  setLanguage(selectedLanguage: Language){
+
+    if(selectedLanguage !== undefined){
+      this.translate.use(selectedLanguage.value);
+      localStorage.setItem("language", selectedLanguage.value);
+    }
+
+  }
+
+  ngDoCheck(): void {
+    this.setLanguage(this.selectedLanguage);
   }
 }

@@ -1,10 +1,10 @@
 <div class="card mt-4">
   <h4 class="card-header">Home</h4>
   <div class="card-body">
-      <p>You're logged in with Angular 10 & JWT!!</p>
-      <p>Your role is: <strong>{{user.role}}</strong>.</p>
-      <p>This page can be accessed by <u>all authenticated users</u>.</p>
-      <p class="mb-1">Current user from secure api end point:</p>
+      <p>{{'HomeBody1' | translate}} </p>
+      <p>{{'HomeBody2' | translate}} <strong>{{user.role}}</strong>.</p>
+      <p>{{'HomeBody3' | translate}} <u>{{'HomeBody4' | translate}}</u>.</p>
+      <p class="mb-1">{{'HomeBody5' | translate}}</p>
       <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
       <ul *ngIf="userFromApi">
           <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>

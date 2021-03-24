@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
 import { first } from "rxjs/operators";
 import { AuthenticationService } from "../authentication.service";
 import { User } from "../models/user";
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService,
+    private translate: TranslateService
   ) {
     this.user = this.authenticationService.userValue;
   }

@@ -1,0 +1,19 @@
+{
+    "LoginTitle": "Angular 10 Role Based Auth Example",
+    "UsernameField": "Username",
+    "PasswordField": "Password",
+    "LoginButton": "Login",
+    "UsernameError": "Username is required",
+    "PasswordError": "Password is required",
+    "NormalUser": "Normal User",
+    "Administrator": "Administrator",
+    "HomeBody1": "You're logged in with Angular 10 & JWT!!",
+    "HomeBody2": "Your role is",
+    "HomeBody3": "This page can be accessed by",
+    "HomeBody4": "all authenticated users",
+    "HomeBody5": "Current user from secure api end point:",
+    "AdminBody1": "This page can be accessed",
+    "AdminBody2": "only by administrators",
+    "AdminBody3": "All users from secure (admin only) api end point:"
+
+}
